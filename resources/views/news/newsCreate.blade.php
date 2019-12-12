@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <textarea id="news_body" type="text" class="md-textarea form-control" name="news_body" cols="30" rows="10" maxlength="2000" required>{{ old('news_body') }}</textarea>
+            <textarea id="news_body" type="text" class="md-textarea form-control" name="news_body" cols="30" rows="10" maxlength="2000">{{ old('news_body') }}</textarea>
 
             @if ($errors->has('news_body'))
                 <span class="help-block">

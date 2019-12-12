@@ -62,7 +62,7 @@ class NewsWebController extends Controller
                 ->withInput();
         }
 
-        return $request->news_body . ' ' . $request->news_head;
+        // return $request->news_body . ' ' . $request->news_head;
 
         $path = $request->file('news_picture')->store('public/newsPictures');
         $url = Storage::url($path);

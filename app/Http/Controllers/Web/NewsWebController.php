@@ -45,31 +45,29 @@ class NewsWebController extends Controller
      */
     public function store(Request $request)
     {
-        $user = Auth::user();
-        if ($user->hasRole(['super-admin', 'manager'])) {
-            $validator = $this->getValidator($request->all());
 
-            if ($validator->fails()) {
-                return redirect()
-                    ->route('auth.manager.news.create')
-                    ->withErrors($validator)
-                    ->withInput();
-            }
+        $validator = Validator::make($request->all(), [
+            'news_head' => 'required|min:3|max:100|string',
+        ]);
 
-            $path = $request->file('picture')->store('public/newsPictures');
-            $url = Storage::url($path);
-
-            News::create([
-                'uuid' => Uuid::generate()->string,
-                'head' => $request->input('head'),
-                'body' => $request->input('body'),
-                'picture' => $url,
-            ]);
-
-            return redirect()->route('auth.manager.news.index');
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.news.create')
+                ->withErrors($validator)
+                ->withInput();
         }
 
-        return redirect('/login');
+        // $path = $request->file('picture')->store('public/newsPictures');
+        // $url = Storage::url($path);
+
+        // News::create([
+        //     'uuid' => Uuid::generate()->string,
+        //     'head' => $request->input('head'),
+        //     'body' => $request->input('body'),
+        //     'picture' => $url,
+        // ]);
+
+        return redirect()->route('auth.news.index');
     }
 
     /**

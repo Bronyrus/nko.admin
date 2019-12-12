@@ -5,17 +5,17 @@
 <form class="form-horizontal" method="POST" action="{{ route('auth.news.store') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
-    <div class="form-group{{ $errors->has('head') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('news_head') ? ' has-error' : '' }}">
         <div class="col-xs-12 col-sm-2">
-        <label for="head" class="control-label text-tc">Заголовок</label>
+        <label for="news_head" class="control-label text-tc">Заголовок</label>
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <input id="head" type="text" class="form-control" name="head" value="{{ old('head') }}" required maxlength="191">
+            <input id="news_head" type="text" class="form-control" name="news_head" value="{{ old('news_head') }}" required maxlength="191">
 
-            @if ($errors->has('head'))
+            @if ($errors->has('news_head'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('head') }}</strong>
+                    <strong>{{ $errors->first('news_head') }}</strong>
                 </span>
             @endif
         </div>

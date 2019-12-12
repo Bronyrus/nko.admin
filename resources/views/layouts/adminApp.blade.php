@@ -33,7 +33,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Охранное предприятие АСБ
+                    {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
 

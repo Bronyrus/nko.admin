@@ -46,6 +46,9 @@ class NewsWebController extends Controller
     public function store(Request $request)
     {
 
+        $request->news_head = trim($request->news_head);
+        $request->news_body = trim($request->news_body);
+
         $validator = Validator::make($request->all(), [
             'news_head' => 'required|min:3|max:100|string',
             'news_body' => 'required|min:3|max:20000|string',
@@ -59,7 +62,7 @@ class NewsWebController extends Controller
                 ->withInput();
         }
 
-        return $request->news_body;
+        return $request->news_body . ' ' . $request->news_head;
 
         $path = $request->file('news_picture')->store('public/newsPictures');
         $url = Storage::url($path);

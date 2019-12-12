@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <a href="" class="btn btn-primary">Добавить новость</a>
+    <a href="{{ route('auth.news.create') }}" class="btn btn-primary">Добавить новость</a>
 
     <br>
 

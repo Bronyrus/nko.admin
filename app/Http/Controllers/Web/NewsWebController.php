@@ -32,7 +32,7 @@ class NewsWebController extends Controller
      */
     public function create()
     {
-        return view('news.createNews', [
+        return view('news.newsCreate', [
             'title' => 'Добавить новость'
         ]);
     }

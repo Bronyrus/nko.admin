@@ -75,7 +75,7 @@
 
                     <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li>
 
-                    <li><a href="{{ route('auth.news') }}">Новости</a></li>
+                    <li><a href="{{ route('auth.news.index') }}">Новости</a></li>
 
                     <li><a href="">Кейсы/успешные практики</a></li>
 

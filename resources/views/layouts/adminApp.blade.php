@@ -14,6 +14,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/nicEdit.js') }}" type="text/javascript"></script>
+    
 </head>
 <body>
 <div id="app">

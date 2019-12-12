@@ -7,7 +7,6 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/jquery.mask.js') }}"></script>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -106,13 +105,5 @@
 </div>
 
 <!-- Scripts -->
-
-<script>
-    
-    $(document).ready(function () {
-        $('input[type=tel]').mask("+7 (999) 999-99-99");
-    });
-
-</script>
 </body>
 </html>

@@ -20,4 +20,5 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
 
 Auth::routes();
 
+Route::get('/', 'Auth\LoginController@showLoginForm')->name('login');
 

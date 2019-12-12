@@ -51,7 +51,7 @@ class NewsWebController extends Controller
 
         $validator = Validator::make($request->all(), [
             'news_head' => 'required|min:3|max:100|string',
-            'news_body' => 'required|min:3|max:20000|string',
+            'news_body' => 'required|min:3|max:20000',
             'news_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 

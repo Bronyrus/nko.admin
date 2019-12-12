@@ -8,7 +8,7 @@ use App\Models\News;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
-use Webpatser\Uuid\Uuid;
+use Illuminate\Support\Str;
 
 class NewsWebController extends Controller
 {
@@ -59,11 +59,13 @@ class NewsWebController extends Controller
                 ->withInput();
         }
 
+        return $request->news_body;
+
         $path = $request->file('news_picture')->store('public/newsPictures');
         $url = Storage::url($path);
 
         News::create([
-            'uuid' => Uuid::generate()->string,
+            'uuid' => Str::uuid(),
             'head' => $request->input('news_head'),
             'body' => $request->input('news_body'),
             'picture' => $url,

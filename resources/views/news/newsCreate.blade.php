@@ -21,33 +21,33 @@
         </div>
     </div>
 
-    <div class="row form-group{{ $errors->has('body') ? ' has-error' : '' }}">
+    <div class="row form-group{{ $errors->has('news_body') ? ' has-error' : '' }}">
         <div class="col-xs-12 col-sm-2">
-        <label for="body" class="control-label text-tc">Текст</label>
+        <label for="news_body" class="control-label text-tc">Текст</label>
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <textarea id="body" type="text" class="md-textarea form-control" name="body" cols="30" rows="10" maxlength="2000">{{ old('body') }}</textarea>
+            <textarea id="news_body" type="text" class="md-textarea form-control" name="news_body" cols="30" rows="10" maxlength="2000" required>{{ old('news_body') }}</textarea>
 
-            @if ($errors->has('body'))
+            @if ($errors->has('news_body'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('body') }}</strong>
+                    <strong>{{ $errors->first('news_body') }}</strong>
                 </span>
             @endif
         </div>
     </div>
 
-    <div class="form-group{{ $errors->has('picture') ? ' has-error' : '' }}">
+    <div class="form-group{{ $errors->has('news_picture') ? ' has-error' : '' }}">
         <div class="col-xs-12 col-sm-2">
-        <label for="picture" class=" control-label text-tc">Картинка</label>
+        <label for="news_picture" class=" control-label text-tc">Картинка</label>
         </div>
     
         <div class="col-xs-12 col-sm-10">
-            <input type="file" name="picture" id="picture" class="form-control-file" accept="image/*" required>
+            <input type="file" name="news_picture" id="news_picture" class="form-control-file" accept="image/*" required>
 
-            @if ($errors->has('picture'))
+            @if ($errors->has('news_picture'))
                 <span class="help-block">
-                    <strong>{{ $errors->first('picture') }}</strong>
+                    <strong>{{ $errors->first('news_picture') }}</strong>
                 </span>
             @endif
         </div>

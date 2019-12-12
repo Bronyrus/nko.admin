@@ -48,6 +48,8 @@ class NewsWebController extends Controller
 
         $validator = Validator::make($request->all(), [
             'news_head' => 'required|min:3|max:100|string',
+            'news_body' => 'required|min:3|max:20000|string',
+            'news_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
         if ($validator->fails()) {
@@ -57,15 +59,15 @@ class NewsWebController extends Controller
                 ->withInput();
         }
 
-        // $path = $request->file('picture')->store('public/newsPictures');
-        // $url = Storage::url($path);
+        $path = $request->file('news_picture')->store('public/newsPictures');
+        $url = Storage::url($path);
 
-        // News::create([
-        //     'uuid' => Uuid::generate()->string,
-        //     'head' => $request->input('head'),
-        //     'body' => $request->input('body'),
-        //     'picture' => $url,
-        // ]);
+        News::create([
+            'uuid' => Uuid::generate()->string,
+            'head' => $request->input('news_head'),
+            'body' => $request->input('news_body'),
+            'picture' => $url,
+        ]);
 
         return redirect()->route('auth.news.index');
     }

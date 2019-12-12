@@ -6,7 +6,7 @@
 
     <br>
 
-    {{-- @foreach($news as $newsItem)
+    @foreach($news as $newsItem)
 
     <div class="row">
         <div class="col-sm-12">
@@ -20,6 +20,6 @@
         </div>
     </div>
     
-    @endforeach --}}
+    @endforeach
 
 @endsection

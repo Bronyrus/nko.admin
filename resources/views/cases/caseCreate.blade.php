@@ -2,7 +2,7 @@
 
 @section('content')
     
-<form class="form-horizontal" method="POST" action="{{ route('auth.news.store') }}" enctype="multipart/form-data">
+<form class="form-horizontal" method="POST" action="{{ route('auth.cases.store') }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
     <div class="form-group{{ $errors->has('case_head') ? ' has-error' : '' }}">

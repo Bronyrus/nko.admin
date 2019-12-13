@@ -21,7 +21,7 @@ class ModsWebController extends Controller
     {
         return view('mods.modsList', [
             'title' => 'Модераторы',
-            'mods' => User::all()->sortByDesc('created_at')
+            'mods' => User::all()->where('admin', '<>', '1')->sortByDesc('created_at')
         ]);
     }
 
@@ -32,8 +32,8 @@ class ModsWebController extends Controller
      */
     public function create()
     {
-        return view('events.eventCreate', [
-            'title' => 'Добавить мероприятие'
+        return view('mods.modsCreate', [
+            'title' => 'Создать модератора'
         ]);
     }
 

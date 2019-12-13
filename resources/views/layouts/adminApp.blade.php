@@ -84,9 +84,15 @@
             <div class="col-sm-3 left-menu">
                 <ul class="nav">
 
+                    <?php
+                    $admin = Auth::user()->admin;    
+                    ?>
+
                     <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li>
 
                     <li><a href="{{ route('auth.news.index') }}">Новости</a></li>
+
+                    @if($admin == 1)
 
                     <li><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
 
@@ -101,6 +107,8 @@
                     <li><a href="{{ route('auth.user.index') }}">Личный кабинет</a></li>
 
                     <li><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
+
+                    @endif
                 </ul>
             </div>
             <div class="col-sm-9 tabs-content">

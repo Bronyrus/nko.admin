@@ -47,7 +47,7 @@ class UserWebController extends Controller
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.user.edit', ['id' => Auth::user()->id])
+                ->route('auth.user.show', ['id' => Auth::user()->id])
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -64,7 +64,7 @@ class UserWebController extends Controller
 
             if ($validator->fails()) {
                 return redirect()
-                    ->routeroute('auth.user.edit', ['id' => Auth::user()->id])
+                    ->routeroute('auth.user.show', ['id' => Auth::user()->id])
                     ->withErrors($validator)
                     ->withInput();
             }

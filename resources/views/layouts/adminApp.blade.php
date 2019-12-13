@@ -88,7 +88,7 @@
 
                     <li><a href="{{ route('auth.news.index') }}">Новости</a></li>
 
-                    <li><a href="">Кейсы/успешные практики</a></li>
+                    <li><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
 
                     <li><a href="">Онлайн голосование</a></li>
 

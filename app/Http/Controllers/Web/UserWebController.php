@@ -33,7 +33,7 @@ class UserWebController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Request $request)
     {
         $request->old_password = trim($request->old_password);
         $request->old_password_confirmation = trim($request->old_password_confirmation);

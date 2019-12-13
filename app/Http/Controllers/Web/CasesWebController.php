@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Case;
+use App\Models\Cases;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +21,7 @@ class NewsWebController extends Controller
     {
         return view('cases.caseList', [
             'title' => 'Кейсы/успешные практики',
-            'cases' => Case::all()->sortByDesc('created_at')
+            'cases' => Cases::all()->sortByDesc('created_at')
         ]);
     }
 

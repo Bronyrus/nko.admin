@@ -98,9 +98,9 @@
 
                     <li><a href="">Мессенджер</a></li>
 
-                    <li><a href="">Личный кабинет</a></li>
+                    <li><a href="{{ route('auth.user.index') }}">Личный кабинет</a></li>
 
-                    <li><a href="">Создание модераторов</a></li>
+                    <li><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
                 </ul>
             </div>
             <div class="col-sm-9 tabs-content">

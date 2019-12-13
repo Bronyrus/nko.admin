@@ -26,6 +26,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::resource('events', 'Web\EventWebController');
 
     Route::resource('mods', 'Web\ModsWebController');
+
+    Route::resource('user', 'Web\UserWebController');
     
 });
 

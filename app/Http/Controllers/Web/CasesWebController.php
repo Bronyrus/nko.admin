@@ -32,8 +32,8 @@ class CasesWebController extends Controller
      */
     public function create()
     {
-        return view('news.newsCreate', [
-            'title' => 'Добавить новость'
+        return view('cases.caseCreate', [
+            'title' => 'Добавить кейс'
         ]);
     }
 
@@ -67,14 +67,14 @@ class CasesWebController extends Controller
         $path = $request->file('news_picture')->store('public/newsPictures');
         $url = Storage::url($path);
 
-        News::create([
+        Cases::create([
             'uuid' => Str::uuid(),
             'head' => $request->input('news_head'),
             'body' => $request->input('news_body'),
             'picture' => $url,
         ]);
 
-        return redirect()->route('auth.news.index');
+        return redirect()->route('auth.cases.index');
     }
 
     /**

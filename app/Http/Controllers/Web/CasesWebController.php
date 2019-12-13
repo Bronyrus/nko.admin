@@ -46,31 +46,30 @@ class CasesWebController extends Controller
     public function store(Request $request)
     {
 
-        $request->news_head = trim($request->news_head);
-        $request->news_body = trim($request->news_body);
+        $request->case_head = trim($request->case_head);
+        $request->case_body = trim($request->case_body);
 
         $validator = Validator::make($request->all(), [
-            'news_head' => 'required|min:3|max:100|string',
-            'news_body' => 'required|min:3|max:20000',
-            'news_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+            'case_head' => 'required|min:3|max:100|string',
+            'case_body' => 'required|min:3|max:20000',
+            'case_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
         ]);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.news.create')
+                ->route('auth.cases.create')
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        // return $request->news_body . ' ' . $request->news_head;
 
-        $path = $request->file('news_picture')->store('public/newsPictures');
+        $path = $request->file('case_picture')->store('public/newsPictures');
         $url = Storage::url($path);
 
         Cases::create([
             'uuid' => Str::uuid(),
-            'head' => $request->input('news_head'),
-            'body' => $request->input('news_body'),
+            'head' => $request->input('case_head'),
+            'body' => $request->input('case_body'),
             'picture' => $url,
         ]);
 

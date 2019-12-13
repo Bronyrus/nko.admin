@@ -15,4 +15,8 @@ class Event extends Model
      * @var string
      */
     protected $table = 'events';
+
+    protected $dates = [
+        'date_start',
+    ];
 }

@@ -53,9 +53,10 @@ class UserWebController extends Controller
         }
 
         $user = User::where('id', '=', $id)->first('password');
+        $pass = $user->password;
 
         $validator->after(function ($validator) {
-            if (!Hash::check(request('old_password'), $user->password)) {
+            if (!Hash::check(request('old_password'), request('pass'))) {
                 $validator->errors()->add('old_password', 'Текущий введенный пароль не совпадает с текущим паролем пользователя');
             }
         });

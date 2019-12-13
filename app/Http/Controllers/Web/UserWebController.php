@@ -60,6 +60,13 @@ class UserWebController extends Controller
             }
         });
 
+        if ($validator->fails()) {
+            return redirect()
+                ->route('auth.user.show', ['id' => Auth::user()->id])
+                ->withErrors($validator)
+                ->withInput();
+        }
+
         return 'adsad';
 
         // User::create([

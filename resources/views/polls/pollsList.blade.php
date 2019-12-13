@@ -1,10 +1,10 @@
 @extends('layouts.adminApp')
 
 @section('content')
- <div class="col-sm-12 tabs-content">
+<div class="col-sm-12 tabs-content">
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
-           <div class="group-btn-card">
+            <div class="group-btn-card">
                 <a href="{{ route('auth.polls.create') }}" class="btn-card">Создать опрос</a>
                 <button type="button" class="btn-card btn-tc-danger js-destroy-button">Удалить отмеченные опросы</button>
             </div>

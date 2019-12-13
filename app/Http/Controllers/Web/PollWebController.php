@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Web;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Poll;
-use App\PollCategories;
-use App\PollQuestions;
-use App\PollQuestionAnswers;
-use App\PollQuestionAnswerUsers;
-use App\UserToPoll;
+use App\Models\Poll;
+use App\Models\PollQuestions;
+use App\Models\PollQuestionAnswers;
+use App\Models\PollQuestionAnswerUsers;
+use App\Models\UserToPoll;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;

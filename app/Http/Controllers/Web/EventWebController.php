@@ -52,7 +52,7 @@ class EventWebController extends Controller
         $validator = Validator::make($request->all(), [
             'event_head' => 'required|min:3|max:100|string',
             'event_body' => 'required|min:3|max:20000',
-            'event_date' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+            'event_date' => 'required|date'
         ]);
 
         if ($validator->fails()) {

@@ -24,6 +24,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::resource('polls', 'Web\PollWebController');
 
     Route::resource('events', 'Web\EventWebController');
+
+    Route::resource('mods', 'Web\ModsWebController');
     
 });
 

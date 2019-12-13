@@ -18,8 +18,8 @@
                 <tbody>
                 @foreach($mods as $item)
                     <tr>
-                        <td><a href="mods/{{ $mods->id }}"> {{ $mods->name }} </a></td>
-                        <td>{{ $mods->email }}</td>
+                        <td><a href="mods/{{ $item->id }}"> {{ $item->name }} </a></td>
+                        <td>{{ $item->email }}</td>
                     </tr>
                 @endforeach
                 </tbody>

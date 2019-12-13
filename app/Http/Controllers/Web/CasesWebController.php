@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class NewsWebController extends Controller
+class CasesWebController extends Controller
 {
     /**
      * Display a listing of the resource.

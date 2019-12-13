@@ -70,7 +70,7 @@ class ModsWebController extends Controller
             'admin' => 0
         ]);
 
-        return redirect()->route('auth.events.index');
+        return redirect()->route('auth.mods.index');
     }
 
     /**

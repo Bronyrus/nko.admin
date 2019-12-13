@@ -59,7 +59,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <input type="password" class="form-control" name="password_confirmation" value="{{ old('password_confirmation') }}" required>
+            <input type="password" class="form-control" name="password_confirmation" value="" required>
 
             @if ($errors->has('password_confirmation'))
                 <span class="help-block">

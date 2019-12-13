@@ -104,7 +104,7 @@
 
                     <li><a href="">Мессенджер</a></li>
 
-                    <li><a href="{{ route('auth.user.index') }}">Личный кабинет</a></li>
+                    <li><a href="{{ route('auth.user.show') }}">Личный кабинет</a></li>
 
                     <li><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
 

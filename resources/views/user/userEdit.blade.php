@@ -2,7 +2,7 @@
 
 @section('content')
     
-<form class="form-horizontal" method="POST" action="{{ route('auth.user.edit', ['id' => Auth::user()->id]) }}" enctype="multipart/form-data">
+<form class="form-horizontal" method="GET" action="{{ route('auth.user.edit', ['id' => Auth::user()->id]) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
     <div class="row form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">

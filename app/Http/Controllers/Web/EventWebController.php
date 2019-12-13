@@ -32,7 +32,7 @@ class EventWebController extends Controller
      */
     public function create()
     {
-        return view('news.newsCreate', [
+        return view('events.eventCreate', [
             'title' => 'Добавить новость'
         ]);
     }

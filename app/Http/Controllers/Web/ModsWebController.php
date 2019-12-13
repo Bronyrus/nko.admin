@@ -64,7 +64,7 @@ class ModsWebController extends Controller
         }
 
         User::create([
-            'name' => $request->input('name'),
+            'name' => $request->input('mod_name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
             'admin' => 0

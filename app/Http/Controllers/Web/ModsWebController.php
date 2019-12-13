@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class ModsWebController extends Controller
 {
@@ -46,27 +47,27 @@ class ModsWebController extends Controller
     public function store(Request $request)
     {
 
-        $request->event_head = trim($request->event_head);
-        $request->event_body = trim($request->event_body);
+        $request->mod_name = trim($request->mod_name);
+        $request->email = trim($request->email);
 
         $validator = Validator::make($request->all(), [
-            'event_head' => 'required|min:3|max:100|string',
-            'event_body' => 'required|min:3|max:20000',
-            'event_date' => 'required|date'
+            'mod_name' => 'required|min:3|max:100|string',
+            'email' => 'required|min:3|email|unique:users',
+            'password' => 'required|confirmed'
         ]);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('auth.events.create')
+                ->route('auth.mods.create')
                 ->withErrors($validator)
                 ->withInput();
         }
 
-        Event::create([
-            'uuid' => Str::uuid(),
-            'head' => $request->input('event_head'),
-            'body' => $request->input('event_body'),
-            'date_start' => $request->input('event_date')
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'admin' => 0
         ]);
 
         return redirect()->route('auth.events.index');

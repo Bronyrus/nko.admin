@@ -90,7 +90,9 @@
 
                     <li><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
 
-                    <li><a href="">Онлайн голосование</a></li>
+                    <li><a href="{{ route('auth.events.index') }}">События</a></li>
+
+                    <li><a href="{{ route('auth.polls.index') }}">Онлайн голосование</a></li>
 
                     <li><a href="">Документы</a></li>
 

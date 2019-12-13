@@ -20,6 +20,10 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::resource('news', 'Web\NewsWebController');
 
     Route::resource('cases', 'Web\CasesWebController');
+
+    Route::resource('polls', 'Web\PollWebController');
+
+    Route::resource('events', 'Web\EventWebController');
     
 });
 

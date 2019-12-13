@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->uuid('uuid');
             $table->string('head');
             $table->text('body');
-            $table->string('picture');
+            $table->string('picture')->nullable();
             $table->date('date_start');
             $table->timestamps();
         });

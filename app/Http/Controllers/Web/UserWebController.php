@@ -54,21 +54,13 @@ class UserWebController extends Controller
 
         $user = User::where('id', '=', $id)->first('password');
 
-        if (Hash::check($request->old_password, $user->password))
-        {
-            return 'suc';
-        }
-        else
-        {
-            $validator->getMessageBag()->add('old_password', 'Текущий пароль не совпадает');
-
-            if ($validator->fails()) {
-                return redirect()
-                    ->routeroute('auth.user.show', ['id' => Auth::user()->id])
-                    ->withErrors($validator)
-                    ->withInput();
+        $validator->after(function ($validator) {
+            if (!Hash::check($request->old_password, $user->password)) {
+                $validator->errors()->add('old_password', 'Текущий введенный пароль не совпадает с текущим паролем пользователя');
             }
-        }
+        });
+
+        return 'adsad';
 
         // User::create([
         //     'name' => $request->input('mod_name'),

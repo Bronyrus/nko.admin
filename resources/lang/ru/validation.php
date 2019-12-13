@@ -189,6 +189,8 @@ return [
         'news_picture'          => 'Картинка к новости',
         'case_head'             => 'Заголовок кейса',
         'case_body'             => 'Текст кейса',
-        'case_picture'          => 'Картинка к кейсу'
+        'case_picture'          => 'Картинка к кейсу',
+        'old_password'          => 'Текущий пароль',
+        'new_password'          => 'Новый пароль'
     ],
 ];

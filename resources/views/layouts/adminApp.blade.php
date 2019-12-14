@@ -104,7 +104,7 @@
 
                     <li><a href="">Мессенджер</a></li>
 
-                    <li><a href="{{ route('auth.user.show', ['id' => Auth::user()->id, 'suc' => 0]) }}">Личный кабинет</a></li>
+                    <li><a href="{{ route('auth.user.show', ['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
 
                     <li><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
 

@@ -23,7 +23,8 @@ class UserWebController extends Controller
     public function show($id)
     {
         return view('user.userEdit', [
-            'title' => 'Сменить пароль'
+            'title' => 'Сменить пароль',
+            'suc' => 0
         ]);
     }
 

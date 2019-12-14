@@ -12,6 +12,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Наименование</th>
+                    <th scope="col">Место проведения</th>
                     <th scope="col">Дата начала</th>
                 </tr>
                 </thead>
@@ -19,6 +20,7 @@
                 @foreach($events as $item)
                     <tr>
                         <td><a href="events/{{ $item->id }}"> {{ $item->head }} </a></td>
+                        <td>{{ $item->place }}</td>
                         <td>{{ date('d.m.Y', strtotime($item->date_start)) }}</td>
                     </tr>
                 @endforeach

@@ -37,6 +37,22 @@
         </div>
     </div>
 
+    <div class="row form-group{{ $errors->has('event_place') ? ' has-error' : '' }}">
+        <div class="col-xs-12 col-sm-2">
+        <label for="event_place" class="control-label text-tc">Место проведения мероприятия</label>
+        </div>
+
+        <div class="col-xs-12 col-sm-10">
+            <input type="date" class="form-control" name="event_place" value="{{ old('event_place') }}" required>
+
+            @if ($errors->has('event_place'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('event_place') }}</strong>
+                </span>
+            @endif
+        </div>
+    </div>
+
     <div class="row form-group{{ $errors->has('event_date') ? ' has-error' : '' }}">
         <div class="col-xs-12 col-sm-2">
         <label for="event_date" class="control-label text-tc">Дата проведения мероприятия</label>

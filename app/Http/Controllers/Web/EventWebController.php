@@ -52,7 +52,8 @@ class EventWebController extends Controller
         $validator = Validator::make($request->all(), [
             'event_head' => 'required|min:3|max:100|string',
             'event_body' => 'required|min:3|max:20000',
-            'event_date' => 'required|date'
+            'event_date' => 'required|date',
+            'event_place' => 'required|min:3|max:191|string',
         ]);
 
         if ($validator->fails()) {
@@ -66,7 +67,8 @@ class EventWebController extends Controller
             'uuid' => Str::uuid(),
             'head' => $request->input('event_head'),
             'body' => $request->input('event_body'),
-            'date_start' => $request->input('event_date')
+            'date_start' => $request->input('event_date'),
+            'place' => $request->input('event_place')
         ]);
 
         return redirect()->route('auth.events.index');

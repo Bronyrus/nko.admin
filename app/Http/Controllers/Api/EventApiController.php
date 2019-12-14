@@ -20,7 +20,7 @@ class EventApiController extends ApiBaseController
     {
         if($date == null)
         {
-            return response()->json(['errors'=>'Пустая дата'], 401); 
+            return response()->json(['errors'=>'Пустая дата'], 404); 
         }
 
         $events = Event::where('date_start', '=', $date)->get();

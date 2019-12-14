@@ -72,16 +72,11 @@ class UserWebController extends Controller
                 ->withInput();
         }
 
-        return 'adsad';
+        User::where()->update([
+            'password' => Hash::make($request->new_password),
+        ]);
 
-        // User::create([
-        //     'name' => $request->input('mod_name'),
-        //     'email' => $request->input('email'),
-        //     'password' => Hash::make($request->input('password')),
-        //     'admin' => 0
-        // ]);
-
-        // return redirect()->route('auth.user.edit', ['id' => Auth::user()->id]);
+        return redirect()->route('auth.user.edit', ['id' => Auth::user()->id, 'suc' => 1]);
     }
 
 }

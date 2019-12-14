@@ -5,6 +5,10 @@
 <form class="form-horizontal" method="HEAD" action="{{ route('auth.user.edit', ['id' => Auth::user()->id]) }}" enctype="multipart/form-data">
     {{ csrf_field() }}
 
+    @if($suc == 1)
+    <h2 style="color: green">Пароль успешно изменен!</h2>
+    @endif
+
     <div class="row form-group{{ $errors->has('old_password') ? ' has-error' : '' }}">
         <div class="col-xs-12 col-sm-2">
         <label for="old_password" class="control-label text-tc">Текущий пароль</label>

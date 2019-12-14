@@ -91,7 +91,7 @@ class AuthApiController extends ApiBaseController
     public function login(Request $request) { 
 
         $validator = Validator::make($request->all(), [ 
-            'login' => 'required',
+            'email' => 'required|email',
             'password' => 'required|min:6'
         ]);
         
@@ -99,18 +99,15 @@ class AuthApiController extends ApiBaseController
             return response()->json(['error'=>$validator->errors()], 401);            
         }
 
-        $client = Client::where('login', '=', $request['login'])->first();        
+        if(!Client::where('email', '=', $request->email)->exists())
+        {
+            return response()->json(['errors'=>'Такого пользователя не существует'], 401); 
+        }       
 
-        if ($client != null) {
-            if (Hash::check(request('password'), $client->password))
-            {
-                Auth::login($client);
-            }
-            else
-            {
-                return $this->SendError('Authorization error', 'Wrong password', 401);
-            }
+        $client = Client::where('email', '=', $request->email)->first('password');
 
+        if(Hash::check($request->password, $client->password))
+        {
             if (Auth::check()) {
                 $tokenResult = $client->createToken(config('app.name'));
                 $token = $tokenResult->token;
@@ -128,9 +125,8 @@ class AuthApiController extends ApiBaseController
                 ],
                     'Authorization is successful');
             }
-        }
-
-        return $this->SendError('Authorization error', 'Unauthorised', 401);
+        };
+        return response()->json(['errors'=>'Авторизация не удалась'], 401); 
     }
     
 }

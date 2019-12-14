@@ -23,7 +23,7 @@ class EventApiController extends ApiBaseController
             return response()->json(['errors'=>'Пустая дата'], 404); 
         }
 
-        $events = Event::where('date_start', '=', $date)->get();
+        $events = Event::where('date_start', '=', $date)->get()->toArray();
 
         return $this->sendResponse($events, 'Events returned');
     }

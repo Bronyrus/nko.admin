@@ -22,14 +22,14 @@
                 <thead>
                 <tr>
                     <th scope="col">Имя</th>
-                    <th scope="col">Телефон</th>
+                    <th scope="col">Электронная почта</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($users as $item)
                     <tr>
                         <td>{{ $item['name']}}</td>
-                        <td>{{ $item['phone'] }}</td>
+                        <td>{{ $item['email'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>

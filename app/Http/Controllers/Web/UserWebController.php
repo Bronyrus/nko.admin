@@ -73,7 +73,7 @@ class UserWebController extends Controller
                 ->withInput();
         }
 
-        User::where()->update([
+        User::where('id', '=', $id)->update([
             'password' => Hash::make($request->new_password),
         ]);
 

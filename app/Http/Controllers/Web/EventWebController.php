@@ -83,9 +83,16 @@ class EventWebController extends Controller
      */
     public function show($id)
     {
+        // $users = UserToEvent::where('event_id', '=', $id)->get();
+        $clients = [];
+        // foreach($users as $user)
+        // {
+        //     $user->client()->
+        // }
         return view('events.eventDetail', [
             'title' => 'Информация о мероприятии',
-            'event' => Event::where('id', '=', $id)->first()
+            'event' => Event::where('id', '=', $id)->first(),
+            'users' => $clients
         ]);
     }
 

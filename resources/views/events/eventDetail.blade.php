@@ -17,7 +17,7 @@
             <div class="col-4 col-sm-12">
                 Место проведения: {{ $event->place }}
             </div>
-            <h3>Зарегистрированные участники (всего: человек(а))</h3>
+            <h3>Зарегистрированные участники (всего: {{ count($users) }} человек(а))</h3>
             <table class="table policy-table">
                 <thead>
                 <tr>
@@ -26,12 +26,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{-- @foreach($events as $item)
+                @foreach($users as $item)
                     <tr>
-                        <td><a href="events/{{ $item->id }}"> {{ $item->head }} </a></td>
-                        <td>{{ $item->date_start }}</td>
+                        <td>{{ $item['name']}}</td>
+                        <td>{{ $item['phone'] }}</td>
                     </tr>
-                @endforeach --}}
+                @endforeach
                 </tbody>
             </table>
         </div>

@@ -41,6 +41,11 @@ class EventApiController extends ApiBaseController
         $userId = auth('api')->user()->id;
         $event = Event::where('uuid', '=', $request->event)->first('id');
 
+        if(UserToEvent::where('user_id', '=', $userId)->where('event_id', '=', $event->id)->exists())
+        {
+            return response()->json(['errors'=>'Пользователь уже зарегистрирован на данное мероприятие'], 404);       
+        }
+
         UserToEvent::create([
             'user_id' => $userId,
             'event_id' => $event->id,

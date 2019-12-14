@@ -30,7 +30,24 @@ class EventApiController extends ApiBaseController
 
     public function registerOnEvent(Request $request)
     {
+        $validator = Validator::make($request->all(), [ 
+            'date' => 'required|date|after_or_equal:tomorrow',
+            'event' => 'required|uuid'
+        ]);
+        
+        if ($validator->fails()) { 
+            return response()->json(['errors'=>$validator->errors()], 404);            
+        }
 
+        $userId = auth('api')->user()->id;
+        $event = Event::where('uuid', '=', $request->event)->first('id');
+
+        UserToEvent::create([
+            'user_id' => $userId,
+            'event_id' => $event->id,
+        ]);
+
+        return $this->sendResponse([], 'Пользователь успешно зарегистрировался на мероприятие');
     }
 
 }

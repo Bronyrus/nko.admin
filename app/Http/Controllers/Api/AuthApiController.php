@@ -18,6 +18,11 @@ class AuthApiController extends ApiBaseController
 {
     public $successStatus = 200;
 
+    private $name;
+    private $email;
+    private $type;
+    private $password;
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [ 
@@ -36,13 +41,18 @@ class AuthApiController extends ApiBaseController
             return response()->json(['errors'=>'Клиент уже зарегистрирован'], 401);     
         }
 
+        $this->name = $request->name;
+        $this->email = $request->email;
+        $this->type = $request->type;
+        $this->password = $request->password;
+
         DB::transaction(function () {
             $user = Client::create([
                 'uuid' => Str::uuid(),
-                'name' => $request->name,
-                'email' => $request->email,
-                'type' => $request->type,
-                'password' => Hash::make($request->password),
+                'name' => $this->name,
+                'email' => $this->email,
+                'type' => $this->type,
+                'password' => Hash::make($this->password),
             ]);
         });
 

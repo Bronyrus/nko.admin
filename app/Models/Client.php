@@ -6,16 +6,36 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
-    /**
-     * @var string
-     */
-    protected $table = 'polls';
+    use HasApiTokens, Notifiable;
 
+    protected $table = 'clients';
 
     /**
      * @var array
      */
     protected $guarded = ['id'];
+
+    protected $username = 'name';
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function loginUsername()
+    {
+        return 'name';
+    }
 
     /**
      * The attributes that should be hidden for arrays.
@@ -23,6 +43,6 @@ class Client extends Model
      * @var array
      */
     protected $hidden = [
-        'password',
+        'password', 'remember_token',
     ];
 }

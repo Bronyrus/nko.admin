@@ -19,7 +19,7 @@
                 @foreach($events as $item)
                     <tr>
                         <td><a href="events/{{ $item->id }}"> {{ $item->head }} </a></td>
-                        <td>{{ date('d F Y', strtotime($item->date_start)) }}</td>
+                        <td>{{ date('d.m.Y', strtotime($item->date_start)) }}</td>
                     </tr>
                 @endforeach
                 </tbody>

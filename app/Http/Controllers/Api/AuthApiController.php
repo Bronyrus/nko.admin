@@ -22,6 +22,7 @@ class AuthApiController extends ApiBaseController
     private $email;
     private $type;
     private $password;
+    private $user;
 
     public function register(Request $request)
     {
@@ -47,7 +48,7 @@ class AuthApiController extends ApiBaseController
         $this->password = $request->password;
 
         DB::transaction(function () {
-            $user = Client::create([
+            $this->user = Client::create([
                 'uuid' => Str::uuid(),
                 'name' => $this->name,
                 'email' => $this->email,
@@ -61,10 +62,10 @@ class AuthApiController extends ApiBaseController
             return response()->json(['errors'=>'Не удалось зарегистрировать клиента'], 401);     
         }
 
-        Auth::login($user);     
+        Auth::login($this->user);     
 
         if (Auth::check()) {
-            $tokenResult = $user->createToken(config('app.name'));
+            $tokenResult = $this->user->createToken(config('app.name'));
             $token = $tokenResult->token;
             $token->expires_at = Carbon::now()->addWeeks(1);
             $token->save();

@@ -9,14 +9,10 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class AuthApiController extends ApiBaseController
+class EventApiController extends ApiBaseController
 {
     public $successStatus = 200;
 
@@ -29,7 +25,7 @@ class AuthApiController extends ApiBaseController
 
         $events = Event::where('date_start', '=', $date)->get();
 
-        return $this->sendResponse($events, 'Authorization is successful');
+        return $this->sendResponse($events, 'Events returned');
     }
 
     public function registerOnEvent(Request $request)

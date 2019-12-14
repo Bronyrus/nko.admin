@@ -82,7 +82,10 @@ class EventWebController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('events.eventDetail', [
+            'title' => 'Информация о мероприятии',
+            'event' => Event::where('id', '=', $id)->first()
+        ]);
     }
 
     /**

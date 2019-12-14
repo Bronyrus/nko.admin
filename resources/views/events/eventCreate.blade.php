@@ -43,7 +43,7 @@
         </div>
 
         <div class="col-xs-12 col-sm-10">
-            <input type="date" class="form-control" name="event_place" value="{{ old('event_place') }}" required>
+            <input type="text" class="form-control" name="event_place" value="{{ old('event_place') }}" required>
 
             @if ($errors->has('event_place'))
                 <span class="help-block">

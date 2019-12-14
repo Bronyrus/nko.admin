@@ -31,7 +31,6 @@ class EventApiController extends ApiBaseController
     public function registerOnEvent(Request $request)
     {
         $validator = Validator::make($request->all(), [ 
-            'date' => 'required|date|after_or_equal:tomorrow',
             'event' => 'required|uuid'
         ]);
         

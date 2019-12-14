@@ -120,8 +120,6 @@ class AuthApiController extends ApiBaseController
                     'expires_at' => Carbon::parse(
                         $tokenResult->token->expires_at
                     )->toDateTimeString(),
-                    'uid' => $client->uid,
-                    'role' => $client->role
                 ],
                     'Authorization is successful');
             }

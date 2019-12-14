@@ -108,6 +108,7 @@ class AuthApiController extends ApiBaseController
 
         if(Hash::check($request->password, $client->password))
         {
+            Auth::login($client);
             if (Auth::check()) {
                 $tokenResult = $client->createToken(config('app.name'));
                 $token = $tokenResult->token;

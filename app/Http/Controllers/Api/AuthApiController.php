@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
-class AuthController extends ApiBaseController
+class AuthApiController extends ApiBaseController
 {
     public $successStatus = 200;
 

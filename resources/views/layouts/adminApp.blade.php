@@ -90,7 +90,7 @@
                         </ul>
         
                         <!-- Right Side Of Navbar -->
-                        <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-left">
                             <?php
                             $admin = Auth::user()->admin;    
                             ?>
@@ -118,35 +118,6 @@
                             @endif
                         </ul>
                     </div>
-
-                {{-- <ul class="nav">
-
-                    <?php
-                    $admin = Auth::user()->admin;    
-                    ?>
-
-                    <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li>
-
-                    <li><a href="{{ route('auth.news.index') }}">Новости</a></li>
-
-                    @if($admin == 1)
-
-                    <li><a href="{{ route('auth.cases.index') }}">Кейсы/успешные практики</a></li>
-
-                    <li><a href="{{ route('auth.events.index') }}">События</a></li>
-
-                    <li><a href="{{ route('auth.polls.index') }}">Онлайн голосование</a></li>
-
-                    <li><a href="">Документы</a></li>
-
-                    <li><a href="">Мессенджер</a></li>
-
-                    <li><a href="{{ route('auth.user.show', ['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
-
-                    <li><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
-
-                    @endif
-                </ul> --}}
             </div>
             <div class="col-sm-9 tabs-content">
                 @yield('content')

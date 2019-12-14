@@ -82,6 +82,9 @@ class EventWebController extends Controller
      */
     public function show($id)
     {
+
+        dd(Event::where('id', '=', $id)->first());
+        
         return view('events.eventDetail', [
             'title' => 'Информация о мероприятии',
             'event' => Event::where('id', '=', $id)->first()

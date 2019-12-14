@@ -95,7 +95,7 @@
                             $admin = Auth::user()->admin;    
                             ?>
         
-                            <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li>
+                            {{-- <li class="active"><a href="{{ route('auth.home') }}">Главная</a></li> --}}
         
                             <li><a href="{{ route('auth.news.index') }}">Новости</a></li>
         

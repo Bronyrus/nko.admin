@@ -125,7 +125,11 @@ class AuthApiController extends ApiBaseController
                 ],
                     'Authorization is successful');
             }
-        };
+        }
+        else
+        {
+            return response()->json(['errors'=>'Неверный пароль'], 401); 
+        }
         return response()->json(['errors'=>'Авторизация не удалась'], 401); 
     }
     

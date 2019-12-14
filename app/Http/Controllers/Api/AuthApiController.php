@@ -106,6 +106,8 @@ class AuthApiController extends ApiBaseController
 
         $client = Client::where('email', '=', $request->email)->first('password');
 
+        return $client->password;
+
         if(Hash::check($request->password, $client->password))
         {
             if (Auth::check()) {

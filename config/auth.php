@@ -43,7 +43,7 @@ return [
 
         'api' => [
             'driver' => 'passport',
-            'provider' => 'users',
+            'provider' => 'clients',
         ],
     ],
 
@@ -81,6 +81,8 @@ return [
         //     'table' => 'users',
         // ],
     ],
+
+    'model' => App\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------

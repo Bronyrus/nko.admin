@@ -27,6 +27,9 @@ class UserWebController extends Controller
         ]);
     }
 
+    private $old_pass;
+    private $pass;
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -53,10 +56,11 @@ class UserWebController extends Controller
         }
 
         $user = User::where('id', '=', $id)->first('password');
-        $pass = $user->password;
+        $this->pass = $user->password;
+        $this->old_password = $request->old_password;
 
         $validator->after(function ($validator) {
-            if (!Hash::check(request('old_password'), request('pass'))) {
+            if (!Hash::check($this->old_password, $this->pass)) {
                 $validator->errors()->add('old_password', 'Текущий введенный пароль не совпадает с текущим паролем пользователя');
             }
         });

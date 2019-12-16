@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('events/registerOnEvent', 'Api\EventApiController@registerOnEvent');
 
     Route::get('news/index/{limit}/{offset}', 'Api\NewsApiController@index');
+
+    Route::get('cases/index/{limit}/{offset}', 'Api\CaseApiController@index');
     
 });
 

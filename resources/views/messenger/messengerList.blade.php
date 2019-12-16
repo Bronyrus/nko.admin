@@ -18,10 +18,10 @@
                     <?
                         $client = $item->client();
                     ?>
-                    <tr>
+                    <tr data-href="events/{{ $item->id }}">
                         <td>{{ $client->name }}</td>
                         <td>{{ $client->email }}</td>
-                        <td></td>
+                        <td>Время</td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -29,5 +29,11 @@
         </div>
     </div>
 </div>
+
+<script>
+$('tr[data-href]').on("click", function() {
+    document.location = $(this).data('href');
+});
+</script>
 
 @endsection

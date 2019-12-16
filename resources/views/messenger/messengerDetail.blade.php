@@ -5,7 +5,7 @@
 <div class="col-sm-12 tabs-content">
     <div class="row justify-content-center cont-m">
         <div class="col-md-12">
-            <h2>Чат с пользователем {{ $messenger->client()->name }}</h2>
+            <h2>Чат с пользователем {{ $messenger->client() }}</h2>
             {{-- <div class="col-4 col-sm-12">
                 <p>
                     {!! htmlspecialchars_decode($event->body) !!}

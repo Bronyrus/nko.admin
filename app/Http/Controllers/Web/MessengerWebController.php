@@ -36,7 +36,7 @@ class MessengerWebController extends Controller
     {
         return view('messenger.messengerDetail', [
             'title' => 'Чат с пользователем',
-            'messenger' => Messenger::select('client_id')->where('id', '=', $id)->first()
+            'messenger' => Messenger::select('client_id', 'id')->where('id', '=', $id)->first()
         ]);
     }
 

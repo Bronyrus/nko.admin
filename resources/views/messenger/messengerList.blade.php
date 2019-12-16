@@ -9,16 +9,18 @@
                 <thead>
                 <tr>
                     <th scope="col">Клиент</th>
-                    <th scope="col">Телефон</th>
+                    <th scope="col">Электронная почта</th>
                     <th scope="col">Последнее сообщение</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($messengers as $item)
-                    
+                    <?
+                        $client = $item->client();
+                    ?>
                     <tr>
-                        <td>{{ $item->client()->name }}</td>
-                        <td></td>
+                        <td>{{ $client->name }}</td>
+                        <td>{{ $client->email }}</td>
                         <td></td>
                     </tr>
                 @endforeach

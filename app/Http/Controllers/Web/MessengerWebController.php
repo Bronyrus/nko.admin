@@ -34,16 +34,9 @@ class MessengerWebController extends Controller
      */
     public function show($id)
     {
-        $users = UserToEvent::where('event_id', '=', $id)->get();
-        $clients = [];
-        foreach($users as $user)
-        {
-            $clients[] = $user->user();
-        };
-        return view('events.eventDetail', [
-            'title' => 'Информация о мероприятии',
-            'event' => Event::where('id', '=', $id)->first(),
-            'users' => $clients
+        return view('messenger.messengerDetail', [
+            'title' => 'Чат с пользователем',
+            'messenger' => Messenger::select('client_id')->where('id', '=', $id)->first()
         ]);
     }
 

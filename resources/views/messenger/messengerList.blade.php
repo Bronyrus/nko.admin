@@ -18,7 +18,7 @@
                     <?
                         $client = $item->client();
                     ?>
-                    <tr data-href="events/{{ $item->id }}">
+                    <tr data-href="messenger/{{ $item->id }}" style="cursor: pointer">
                         <td>{{ $client->name }}</td>
                         <td>{{ $client->email }}</td>
                         <td>Время</td>

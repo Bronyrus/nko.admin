@@ -17,7 +17,7 @@
                 @foreach($messengers as $item)
                     
                     <tr>
-                        <td>{{ $item->UserToMessage() }}</td>
+                        <td>{{ $item->UserToMessage()->client() }}</td>
                         <td></td>
                         <td></td>
                     </tr>

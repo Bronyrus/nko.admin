@@ -18,7 +18,7 @@ class UserToMessage extends Model
 
     public function client()
     {
-        return $this->belongsTo(Client::class, 'client_id')->first();
+        return $this->hasOne(Client::class, 'client_id')->first();
     }
 
     public function messenger()

@@ -18,27 +18,27 @@ Route::post('register', 'Api\AuthApiController@register');
 
 Route::group(['middleware' => 'auth:api'], function() {
 
-    // Route::get('events/getEventsByDate/{date}', 'Api\EventApiController@getEventsByDate');
-    // Route::post('events/registerOnEvent', 'Api\EventApiController@registerOnEvent');
+    Route::get('events/getEventsByDate/{date}', 'Api\EventApiController@getEventsByDate');
+    Route::post('events/registerOnEvent', 'Api\EventApiController@registerOnEvent');
 
-    // Route::get('news/index/{limit}/{offset}', 'Api\NewsApiController@index');
+    Route::get('news/index/{limit}/{offset}', 'Api\NewsApiController@index');
 
-    // Route::get('cases/index/{limit}/{offset}', 'Api\CaseApiController@index');
+    Route::get('cases/index/{limit}/{offset}', 'Api\CaseApiController@index');
 
-    // Route::get('messenger/index/{id}', 'Api\MessengerApiController@index');
-    // Route::post('messenger/send/{id}', 'Api\MessengerApiController@send');
+    Route::get('messenger/index/{id}', 'Api\MessengerApiController@index');
+    Route::post('messenger/send/{id}', 'Api\MessengerApiController@send');
     
 });
 
-Route::get('events/getEventsByDate/{date}', 'Api\EventApiController@getEventsByDate');
-Route::post('events/registerOnEvent', 'Api\EventApiController@registerOnEvent');
+// Route::get('events/getEventsByDate/{date}', 'Api\EventApiController@getEventsByDate');
+// Route::post('events/registerOnEvent', 'Api\EventApiController@registerOnEvent');
 
-Route::get('news/index/{limit}/{offset}', 'Api\NewsApiController@index');
+// Route::get('news/index/{limit}/{offset}', 'Api\NewsApiController@index');
 
-Route::get('cases/index/{limit}/{offset}', 'Api\CaseApiController@index');
+// Route::get('cases/index/{limit}/{offset}', 'Api\CaseApiController@index');
 
-Route::get('messenger/index/{id}', 'Api\MessengerApiController@index');
-Route::post('messenger/send/{id}', 'Api\MessengerApiController@send');
+// Route::get('messenger/index/{id}', 'Api\MessengerApiController@index');
+// Route::post('messenger/send/{id}', 'Api\MessengerApiController@send');
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();

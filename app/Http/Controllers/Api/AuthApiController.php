@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Client;
+use App\Models\Messenger;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -55,6 +56,12 @@ class AuthApiController extends ApiBaseController
                 'type' => $this->type,
                 'password' => Hash::make($this->password),
             ]);
+           
+            Messenger::create([
+                'uuid' => Str::uuid(),
+                'client_id' => $this->user->id,
+            ]);
+
         });
 
         if(!Client::where('email', '=', $request->email)->exists())

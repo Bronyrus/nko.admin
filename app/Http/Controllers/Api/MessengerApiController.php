@@ -16,7 +16,7 @@ class MessengerApiController extends ApiBaseController
 {
     public $successStatus = 200;
 
-    public function index()
+    public function index($userId = null)
     {
         $userId = auth('api')->user()->id;
 
@@ -26,5 +26,18 @@ class MessengerApiController extends ApiBaseController
 
         return $this->sendResponse($messages, 'Messages returned');
     }
+
+    public function send()
+    {
+        $userId = auth('api')->user()->id;
+
+        $messenger = Messenger::where('client_id', '=', $userId)->first('id');
+
+        $messages = UserToMessage::select('messenger_id', 'message', 'direction', 'created_at')->where('messenger_id', '=', $messenger->id)->orderBy('created_at', 'desc')->get()->toArray();
+
+        return $this->sendResponse($messages, 'Messages returned');
+    }
+
+
 
 }

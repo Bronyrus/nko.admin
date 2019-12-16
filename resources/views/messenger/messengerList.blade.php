@@ -8,19 +8,20 @@
             <table class="table policy-table">
                 <thead>
                 <tr>
-                    <th scope="col">Наименование</th>
-                    <th scope="col">Место проведения</th>
-                    <th scope="col">Дата начала</th>
+                    <th scope="col">Клиент</th>
+                    <th scope="col">Телефон</th>
+                    <th scope="col">Последнее сообщение</th>
                 </tr>
                 </thead>
                 <tbody>
-                {{-- @foreach($events as $item)
+                @foreach($messengers as $item)
+                    
                     <tr>
-                        <td><a href="events/{{ $item->id }}"> {{ $item->head }} </a></td>
-                        <td>{{ $item->place }}</td>
-                        <td>{{ date('d.m.Y', strtotime($item->date_start)) }}</td>
+                        <td>{{ $item->client()->name }}</td>
+                        <td></td>
+                        <td></td>
                     </tr>
-                @endforeach --}}
+                @endforeach
                 </tbody>
             </table>
         </div>

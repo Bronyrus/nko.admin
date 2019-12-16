@@ -15,6 +15,7 @@ class CreateMessengersTable extends Migration
     {
         Schema::create('messengers', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->uuid('uuid');
             $table->bigInteger('client_id')->unsigned();
             
             $table->timestamps();

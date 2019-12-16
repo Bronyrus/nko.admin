@@ -16,7 +16,7 @@ class NewsApiController extends ApiBaseController
 
     public function index($limit = 100, $offset = 0)
     {
-        $news = News::select('uuid', 'head', 'body', 'picture', 'created_at')->limit($limit)->offset($offset)->get()->toArray();
+        $news = News::select('uuid', 'head', 'body', 'picture', 'created_at')->limit($limit)->offset($offset)->orderBy('created_at', 'desc')->get()->toArray();
 
         return $this->sendResponse($news, 'News returned');
     }

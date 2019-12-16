@@ -21,6 +21,10 @@
                     </div>
                 @endif
             @endforeach
+            <div class="col-4 col-sm-12">
+                <input type="text" name="" id="" class="form-control">
+            </div>
+            
         </div>
     </div>
 </div>

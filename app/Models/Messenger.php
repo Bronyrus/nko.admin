@@ -20,4 +20,9 @@ class Messenger extends Model
     {
         return $this->HasMany(UserToMessage::class, 'id')->get();
     }
+
+    public function client()
+    {
+        return $this->hasOne(Client::class, 'id')->first();
+    }
 }

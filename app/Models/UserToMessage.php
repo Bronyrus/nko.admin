@@ -16,13 +16,13 @@ class UserToMessage extends Model
      */
     protected $table = 'user_to_messages';
 
-    public function client()
-    {
-        return $this->hasOne(Client::class, 'client_id')->first();
-    }
+    // public function client()
+    // {
+    //     return $this->hasOne(Client::class, 'client_id')->first();
+    // }
 
-    public function messenger()
-    {
-        return $this->belongsTo(Messenger::class, 'messenger_id')->get();
-    }
+    // public function messenger()
+    // {
+    //     return $this->belongsTo(Messenger::class, 'messenger_id')->get();
+    // }
 }

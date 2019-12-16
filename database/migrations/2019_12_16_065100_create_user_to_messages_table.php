@@ -16,13 +16,11 @@ class CreateUserToMessagesTable extends Migration
         Schema::create('user_to_messages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('messenger_id')->unsigned();
-            $table->bigInteger('client_id')->unsigned();
             $table->text('messange');
             $table->boolean('direction');
 
             $table->timestamps();
 
-            $table->foreign('client_id')->references('id')->on('clients');
             $table->foreign('messenger_id')->references('id')->on('messengers');
         });
     }

@@ -14,7 +14,7 @@ class UserToMessage extends Model
     /**
      * @var string
      */
-    protected $table = 'user_to_messages';
+    protected $table = 'user_to_message';
 
     // public function client()
     // {

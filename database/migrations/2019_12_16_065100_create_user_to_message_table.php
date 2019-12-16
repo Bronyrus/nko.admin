@@ -13,7 +13,7 @@ class CreateUserToMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_to_messages', function (Blueprint $table) {
+        Schema::create('user_to_message', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->uuid('uuid');
             $table->bigInteger('messenger_id')->unsigned();

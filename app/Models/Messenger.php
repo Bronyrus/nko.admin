@@ -16,5 +16,8 @@ class Messenger extends Model
      */
     protected $table = 'messengers';
 
-    
+    public function client()
+    {
+        return $this->HasMany(UserToMessage::class, 'id')->get();
+    }
 }

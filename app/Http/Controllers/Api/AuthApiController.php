@@ -39,7 +39,7 @@ class AuthApiController extends ApiBaseController
 
         if(Client::where('email', '=', $request->email)->exists())
         {
-            return response()->json(['errors'=>'Клиент уже зарегистрирован'], 401);     
+            return response()->json(['error'=>'Клиент уже зарегистрирован'], 401);     
         }
 
         $this->name = $request->name;
@@ -59,7 +59,7 @@ class AuthApiController extends ApiBaseController
 
         if(!Client::where('email', '=', $request->email)->exists())
         {
-            return response()->json(['errors'=>'Не удалось зарегистрировать клиента'], 401);     
+            return response()->json(['error'=>'Не удалось зарегистрировать клиента'], 401);     
         }
 
         Auth::login($this->user);     
@@ -80,7 +80,7 @@ class AuthApiController extends ApiBaseController
                 'Authorization is successful');
         }
         
-        return response()->json(['errors'=>'Не удалось авторизоваться'], 401);     
+        return response()->json(['error'=>'Не удалось авторизоваться'], 401);     
     }
 
     /** 
@@ -96,12 +96,12 @@ class AuthApiController extends ApiBaseController
         ]);
         
         if ($validator->fails()) { 
-            return response()->json(['error'=>$validator->errors()], 401);            
+            return response()->json(['errors'=>$validator->errors()], 401);            
         }
 
         if(!Client::where('email', '=', $request->email)->exists())
         {
-            return response()->json(['errors'=>'Такого пользователя не существует'], 401); 
+            return response()->json(['error'=>'Такого пользователя не существует'], 401); 
         }       
 
         $client = Client::where('email', '=', $request->email)->first('password');
@@ -127,9 +127,9 @@ class AuthApiController extends ApiBaseController
         }
         else
         {
-            return response()->json(['errors'=>'Неверный пароль'], 401); 
+            return response()->json(['error'=>'Неверный пароль'], 401); 
         }
-        return response()->json(['errors'=>'Авторизация не удалась'], 401); 
+        return response()->json(['error'=>'Авторизация не удалась'], 401); 
     }
     
 }

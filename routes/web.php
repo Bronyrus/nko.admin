@@ -28,6 +28,8 @@ Route::group(['as' => 'auth.', 'middleware' => 'auth'], function () {
     Route::resource('mods', 'Web\ModsWebController');
 
     Route::resource('user', 'Web\UserWebController');
+
+    Route::resource('messenger', 'Web\MessengerWebController');
     
 });
 

@@ -109,13 +109,13 @@
         
                             <li><a href="">Документы</a></li>
         
-                            <li><a href="">Мессенджер</a></li>
-        
-                            <li><a href="{{ route('auth.user.show', ['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
+                            <li><a href="{{ route('auth.messenger.index') }}">Мессенджер</a></li>
         
                             <li><a href="{{ route('auth.mods.index') }}">Модераторы</a></li>
         
                             @endif
+
+                            <li><a href="{{ route('auth.user.show', ['id' => Auth::user()->id]) }}">Личный кабинет</a></li>
                         </ul>
                     </div>
             </div>

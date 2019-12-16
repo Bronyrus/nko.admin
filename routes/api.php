@@ -18,8 +18,10 @@ Route::post('register', 'Api\AuthApiController@register');
 
 Route::group(['middleware' => 'auth:api'], function() {
 
-    Route::get('events/getEventsByDate/{date}', 'Api\EventApiController@getEventsByDate');
+    Route::get('events/getEventsByDate?date={date}', 'Api\EventApiController@getEventsByDate');
     Route::post('events/registerOnEvent', 'Api\EventApiController@registerOnEvent');
+
+    Route::get('news/index?limit={limit}&offset={offset}', 'Api\NewsApiController@index');
     
 });
 

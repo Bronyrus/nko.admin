@@ -33,6 +33,6 @@ class CreateUserToMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_to_messages');
+        Schema::dropIfExists('user_to_message');
     }
 }
